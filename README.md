@@ -1,70 +1,168 @@
 # EXP8
-Aim: Study of for loop in python
+Here is the **rephrased version** of your experiment in a clear and structured format:
 
-Theory:
-At its core, the for loop follows a simple syntax: for item in iterable:.
+---
 
-When this line executes, Python performs an internal "handshake" with the object being looped over. It checks if the object is an Iterable—meaning it has an iter method that can return an Iterator. This iterator is responsible for keeping track of the current position and providing the "next" value until the sequence is exhausted.
+# **Aim: Study of For Loop in Python**
 
-Key Components:
+---
 
-The Target Variable: (e.g., item) This is a placeholder that gets reassigned to the value of each element in the sequence during every pass of the loop.
+## **Theory**
 
-The Iterable: This can be any object capable of returning its members one at a time. This includes:
+The `for` loop in Python is used to iterate over a sequence (or iterable). Its basic syntax is:
 
-Sequences: Lists, Tuples, Strings, and Ranges.
+```
+for item in iterable:
+```
 
-Mappings: Dictionaries (where it iterates over keys by default).
+When this statement executes, Python internally checks whether the object being looped over is an **iterable**. An iterable is any object that can return its elements one at a time. Python creates an **iterator** from the iterable, which keeps track of the current position and provides the next value until all elements are exhausted.
 
-Collections: Sets.
+---
 
-The range() Function Because Python loops are designed to iterate over objects, you need a specific tool if you simply want to repeat an action n times. This is where range() comes in.
+## **Key Components of a For Loop**
 
-Technically, range() is not a function but an immutable sequence type. When you call range(5), Python does not generate a list of five numbers in memory; instead, it creates a "range object" that calculates numbers on the fly (lazy evaluation). This makes it incredibly memory-efficient, whether you are iterating from 1 to 10 or 1 to 10,000,000.
+### **1. Target Variable**
 
-The Anatomy of range(start, stop, step):
+The target variable (e.g., `item`) acts as a placeholder. During each iteration, it is automatically assigned the next value from the iterable.
 
-Start: The starting value (inclusive). Defaults to 0.
+### **2. The Iterable**
 
-Stop: The ending value (exclusive). The loop terminates before reaching this number.
+An iterable is any object capable of returning its elements one by one. Examples include:
 
-Step: The increment between each number. It can be positive (counting up) or negative (counting down).
+* **Sequences:** Lists, Tuples, Strings, Ranges
+* **Mappings:** Dictionaries (iterate over keys by default)
+* **Collections:** Sets
 
-Control Flow Tools: break, continue, and else To add "intelligence" to a loop, Python provides three keywords that alter the standard linear flow:
-break: Immediately terminates the loop, skipping any remaining iterations.
+---
 
-continue: Skips the rest of the code inside the current loop block and "jumps" to the next item in the sequence.
+## **The `range()` Function**
 
-else: This is a unique Python feature. A code block under else will execute only if the loop completes all iterations naturally (i.e., it was not terminated by a break). This is often used for search operations where you want to perform an action if a target was not found.
+Since Python loops operate over iterables, the `range()` function is commonly used when we want to repeat an action a fixed number of times.
 
-Nested Loops and Complexity Python allows you to place a loop inside another loop. During execution, the inner loop completes its entire cycle for every single iteration of the outer loop. Break: Stops the loop completely.
-Continue: Skips the current iteration.
+Technically, `range()` is an immutable sequence type, not just a regular function. When `range(5)` is used, Python does not store all numbers in memory. Instead, it creates a **range object** that generates numbers as needed (lazy evaluation). This makes it highly memory-efficient.
 
-Multiplying two 3x3 Matrix: for i in range(3): # rows of a
-for j in range(3): # rows of b
-for k in range(3):
-result[i][j] += a[i][k] * b[k][j]
+### **Syntax: `range(start, stop, step)`**
+
+* **Start:** Starting value (inclusive). Default is 0.
+* **Stop:** Ending value (exclusive).
+* **Step:** Interval between numbers (can be positive or negative).
+
+---
+
+## **Control Flow Statements**
+
+To control the execution of loops, Python provides:
+
+* **break:** Immediately stops the loop.
+* **continue:** Skips the remaining code in the current iteration and moves to the next one.
+* **else:** Executes only if the loop completes normally (without encountering `break`).
+
+---
+
+## **Nested Loops**
+
+Python allows loops inside other loops. In nested loops, the inner loop runs completely for every single iteration of the outer loop. Nested loops are commonly used in matrix operations and pattern printing.
+
+---
+
+## **Example: Multiplication of Two 3×3 Matrices**
+
+```
+for i in range(3):      # Rows of matrix A
+    for j in range(3):  # Columns of matrix B
+        for k in range(3):
+            result[i][j] += a[i][k] * b[k][j]
+
 for row in result:
-print(row)
+    print(row)
+```
 
-Algoritm:
-A)Print Even Numbers from 1 to 10:
+---
+
+# **Algorithms**
+
+---
+
+## **A) Print Even Numbers from 1 to 10**
 
 Start
+Initialize loop from i = 2 to 10 with step 2
+Print i in each iteration
+End
 
-Initialize a loop starting at i = 2, ending before 11, with a step increment of 2.
+---
 
-In each iteration, print the current value of i. End
+## **B) Sum of First n Numbers**
 
-B)Sum of First n Numbers: Start Input an integer value for n. Initialize a variable sum to 0. Initialize a loop that iterates from i = 1 to n. In each iteration, add the value of i to sum. After the loop finishes, print the final value of sum. End
+Start
+Input integer n
+Initialize sum = 0
+Loop from i = 1 to n
+Add i to sum
+After loop, print sum
+End
 
-C)Print a 3x3 Matrix: Start Define a 2D list (matrix) a with 3 rows and 3 columns. Outer loop: Iterate through each row index i (from 0 to 2). Inner loop: Iterate through each column index j (from 0 to 2). Print the element at a[i][j] followed by a space, without moving to a new line. After the inner loop finishes, print a newline character to move to the next row. End
+---
 
-D)Matrix Multiplication (3x3): Start Define two 3x3 matrices, a and b. Initialize a 3x3 matrix result filled with 0s. Outer loop: Iterate through each row i of matrix a. Middle loop: Iterate through each column j of matrix b. Inner loop: Iterate through index k (from 0 to 2) to perform dot product. Calculate result[i][j] = result[i][j] + (a[i][k] * b[k][j]). After all loops, iterate through each row in result and print it. End
+## **C) Print a 3×3 Matrix**
 
-E)Combinations of 3 Unequal Numbers: Start Define a list d containing three distinct numbers (1, 2, 3). Create three nested loops (i, j, k), each iterating from index 0 to 2. Check the condition: if d[i] != d[j] AND d[j] != d[k] AND d[i] != d[k]. If the condition is true, print the combination d[i], d[j], d[k]. End
+Start
+Define a 3×3 matrix
+Outer loop: iterate rows (i = 0 to 2)
+Inner loop: iterate columns (j = 0 to 2)
+Print element a[i][j] with space
+After each row, print newline
+End
 
-F)Pattern Printing (Right-Angle and Pyramid) Algorithm for Right-Angle Triangle: Start Loop from i = 1 to 9. In each iteration, print the string "* " multiplied by i. End Algorithm for Pyramid Triangle: Start Set rows = 5. Loop from i = 1 to rows. In each iteration, print spaces equal to (rows - i) followed by the string "* " multiplied by i. End
+---
 
-Conclusion:
-Hence for loop was used in python and programs were done using it.
+## **D) Matrix Multiplication (3×3)**
+
+Start
+Define matrices a and b
+Initialize result matrix with zeros
+Outer loop: iterate rows of a
+Middle loop: iterate columns of b
+Inner loop: calculate dot product
+Update result[i][j]
+After loops, print result matrix
+End
+
+---
+
+## **E) Combinations of Three Unequal Numbers**
+
+Start
+Define list d = [1, 2, 3]
+Use three nested loops (i, j, k)
+Check condition:
+d[i] ≠ d[j], d[j] ≠ d[k], and d[i] ≠ d[k]
+If true, print combination
+End
+
+---
+
+## **F) Pattern Printing**
+
+### **Right-Angle Triangle**
+
+Start
+Loop i from 1 to 9
+Print "* " repeated i times
+End
+
+### **Pyramid Triangle**
+
+Start
+Set rows = 5
+Loop i from 1 to rows
+Print spaces (rows − i)
+Print "* " repeated i times
+End
+
+---
+
+## **Conclusion**
+
+Thus, the `for` loop was successfully studied and implemented in Python. Various programs were executed using single and nested loops. The experiment demonstrated how `for` loops efficiently handle iteration, matrix operations, combinations, and pattern printing, making programs more structured and readable.
+
